@@ -192,6 +192,8 @@ namespace element
             Driver.FindElement(By.Id("submit")).Click();
 
             Thread.Sleep(2000);
+            Driver.FindElement(By.Id("delete-record-4")).Click();
+            Thread.Sleep(2000);
             Driver.Close();
             Driver.Quit();
             
