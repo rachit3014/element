@@ -18,28 +18,28 @@ namespace element
 
 
             Worm.Forms();
-            //TextBox();
-            //check_box();
-            //radio_button();
-            //webtable();
-            //button();
-            //link();
+            TextBox();
+            check_box();
+            radio_button();
+            webtable();
+            button();
+            link();
 
-            //upload_and_download();
-       
-            //Browse_window();
-            //alerts();
-            //Modal();
-            //accordian();
-            //datepicker();
-            //timepicker();
-            //slider();
-            //progress();
-            //tabs();
-            //tooltips();
-            //menu();
-            //sortable();
-            //selectable();
+            upload_and_download();
+
+            Browse_window();
+            alerts();
+            Modal();
+            accordian();
+            datepicker();
+            timepicker();
+            slider();
+            progress();
+            tabs();
+            tooltips();
+            menu();
+            sortable();
+            selectable();
 
 
 
