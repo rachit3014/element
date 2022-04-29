@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace element
+namespace Forms
 {
-
-   
-     class Worm
+    internal class Program
     {
-         public static void Forms()
+        static void Main(string[] args)
+        {
+            Forms();
+        }
+        private static void Forms()
         {
 
             IWebDriver Driver = new ChromeDriver();
@@ -23,10 +25,11 @@ namespace element
             Driver.Manage().Window.Maximize();
             Thread.Sleep(2000);
             practice(Driver);
+            
 
         }
 
-        static void practice(IWebDriver Driver)
+         private static void practice(IWebDriver Driver)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
 
@@ -71,7 +74,8 @@ namespace element
             Driver.Close();
             Driver.Quit();
         }
-        
+
 
     }
 }
+
