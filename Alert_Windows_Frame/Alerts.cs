@@ -14,11 +14,12 @@ namespace Alert_Windows_Frame
     {
         public  void alert()
         {
-            IWebDriver Driver = new ChromeDriver();
+           
+            
+            
+            chrome("https://demoqa.com/alerts");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            time(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/alerts");
-            Driver.Manage().Window.Maximize();
+           
             time(1000);
             Findxpath("//button[@id='alertButton']").Click();
             time(1000);

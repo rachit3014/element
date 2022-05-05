@@ -14,11 +14,11 @@ namespace Alert_Windows_Frame
     {
         public   void browse_window()
         {
-            IWebDriver Driver = new ChromeDriver();
+            
+            chrome("https://demoqa.com/browser-windows");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             time(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/browser-windows");
-            Driver.Manage().Window.Maximize();
+            
             new_tab(Driver);
             new_window(Driver);
             new_window_messsage(Driver);

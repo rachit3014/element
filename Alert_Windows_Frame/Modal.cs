@@ -15,14 +15,13 @@ namespace Alert_Windows_Frame
     {
         public  void mmodal()
         {
-            IWebDriver Driver = new ChromeDriver();
+            
+
+            chrome("https://demoqa.com/modal-dialogs");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             time(2000);
 
-            Driver.Navigate().GoToUrl("https://demoqa.com/modal-dialogs");
-            time(2000);
-
-            Driver.Manage().Window.Maximize();
+            
             time(2000);
 
             Findxpath("//button[@id='showSmallModal']").Click();
