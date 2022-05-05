@@ -6,34 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace Widget
 {
-    internal class Accordian
+    internal class Accordian:Class1
     {
-        public static void accordian()
+        public   void accordian()
         {
-            IWebDriver Driver = new ChromeDriver();
+          
+       
+
+            chrome("https://demoqa.com/accordian");
+            time(2000);
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-
-            Driver.Navigate().GoToUrl("https://demoqa.com/accordian");
-            Thread.Sleep(2000);
-            Driver.Manage().Window.Maximize();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.XPath("//div[@id='section1Heading']")).Click();
-            Thread.Sleep(2000);
+            Findxpath("//div[@id='section1Heading']").Click();
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,200)");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.XPath("//div[@id='section2Heading']")).Click();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.XPath("//div[@id='section2Heading']")).Click();
-            Thread.Sleep(2000);
+            time(2000);
+            Findxpath("//div[@id='section2Heading']").Click();
+            time(2000);
+            Findxpath("//div[@id='section2Heading']").Click();
+            time(2000);
 
-            Driver.FindElement(By.XPath("//div[@id='section3Heading']")).Click();
-            Thread.Sleep(2000);
-            Driver.Close();
-            Driver.Quit();
+            Findxpath("//div[@id='section3Heading']").Click();
+            time(2000);
+           quit();
+             
 
 
         }

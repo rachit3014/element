@@ -6,55 +6,53 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace element
 {
-    internal class Link
+    internal class Link :Class1
     {
 
-        public static void link()
+        public  void link()
         {
-            IWebDriver Driver = new ChromeDriver();
+            chrome("https://demoqa.com/links");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/links");
-            Driver.Manage().Window.Maximize();
 
-            Driver.FindElement(By.Id("simpleLink")).Click();
+            Findid("simpleLink").Click();
             string h = Driver.WindowHandles[1];
 
             string o = Driver.WindowHandles[0];
             Driver.SwitchTo().Window(h);
             Driver.Manage().Window.Maximize();
-            Thread.Sleep(3000);
-            Driver.Close();
-            Thread.Sleep(3000);
+            time(3000);
+            quit();
+            time(3000);
             Driver.SwitchTo().Window(o);
-            Thread.Sleep(2000);
+            time(2000);
 
 
-            //Driver.FindElement(By.Id("dynamicLink")).Click();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("created")).Click();
+            //Findid("dynamicLink")).Click();
+            time(2000);
+            Findid("created").Click();
 
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("no-content")).Click();
+            time(2000);
+            Findid("no-content").Click();
 
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("moved")).Click();
+            time(2000);
+            Findid("moved").Click();
 
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,200)");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("bad-request")).Click();
-            Thread.Sleep(2000);
+            time(2000);
+            Findid("bad-request").Click();
+            time(2000);
 
-            Driver.FindElement(By.Id("forbidden")).Click();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("invalid-url")).Click();
-            Thread.Sleep(2000);
-            Driver.Close();
-            Driver.Quit();
+            Findid("forbidden").Click();
+            time(2000);
+            Findid("invalid-url").Click();
+            time(2000);
+           quit();
+             
 
         }
     }

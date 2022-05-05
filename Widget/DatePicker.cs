@@ -7,27 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace Widget
 {
-    internal class DatePicker
+    internal class DatePicker:Class1
     {
-        public static void datepicker()
+        public  void datepicker()
         {
-            IWebDriver Driver = new ChromeDriver();
-            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
+           
 
-            Driver.Navigate().GoToUrl("https://demoqa.com/date-picker");
-            Driver.Manage().Window.Maximize();
+            chrome("https://demoqa.com/date-picker");
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             Actions action = new Actions(Driver);
-            IWebElement CalInputBox = Driver.FindElement(By.XPath("//input[@id='datePickerMonthYearInput']"));
+            IWebElement CalInputBox = Findxpath("//input[@id='datePickerMonthYearInput']");
 
             CalInputBox.Click();
 
-            Thread.Sleep(2000);
+            time(2000);
 
-            action.MoveToElement(Driver.FindElement(By.XPath("//input[@id='datePickerMonthYearInput']")))
+            action.MoveToElement(Findxpath("//input[@id='datePickerMonthYearInput']"))
             .KeyDown(Keys.Control)
             .SendKeys("a")
             .KeyUp(Keys.Control)
@@ -35,30 +34,28 @@ namespace Widget
 
             CalInputBox.SendKeys("01 Jan 2023");
 
-            Thread.Sleep(2000);
+            time(2000);
         }
-        public static void timepicker()
+        public  void timepicker()
         {
-            IWebDriver Driver = new ChromeDriver();
+          
+
+
+
+
+            // time Picker
+
+
+            chrome("https://demoqa.com/date-picker");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-
-
-
-
-            // Time Picker
-
-
-            Driver.Navigate().GoToUrl("https://demoqa.com/date-picker");
-            Driver.Manage().Window.Maximize();
             Actions actio = new Actions(Driver);
-            IWebElement CalInputBo = Driver.FindElement(By.XPath("//input[@id='dateAndTimePickerInput']"));
+            IWebElement CalInputBo = Findxpath("//input[@id='dateAndtimePickerInput']");
 
             CalInputBo.Click();
 
-            Thread.Sleep(2000);
+            time(2000);
 
-            actio.MoveToElement(Driver.FindElement(By.XPath("//input[@id='dateAndTimePickerInput']")))
+            actio.MoveToElement(Findxpath("//input[@id='dateAndtimePickerInput']"))
             .KeyDown(Keys.Control)
             .SendKeys("a")
             .KeyUp(Keys.Control)
@@ -66,9 +63,9 @@ namespace Widget
 
             CalInputBo.SendKeys("01 Jan 2023 11:15 AM");
 
-            Thread.Sleep(2000);
-            Driver.Close();
-            Driver.Quit();
+            time(2000);
+           quit();
+             
         }
     }
 }

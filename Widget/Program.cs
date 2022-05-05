@@ -10,15 +10,33 @@ namespace Widget
     {
         static void Main(string[] args)
         {
-            Accordian.accordian();
-            DatePicker.datepicker();
-            DatePicker.timepicker();
-            Slider.slider();
-            Progressbar.progress();
-          
-            Tab.tabs();
-            ToolTips.tooltips();
-            Menu.menu();
+
+            Accordian acordian = new Accordian();
+            acordian.accordian();
+            DatePicker datePicker = new DatePicker();
+            datePicker.timepicker();
+            Slider slidr = new Slider();
+            slidr.slider();
+            Progressbar progressbar = new Progressbar();
+            progressbar.progress();
+            Tab tab = new Tab();
+            tab.tabs();
+            ToolTips toolTip = new ToolTips();
+            toolTip.tooltips();
+
+            Menu meu = new Menu();
+            meu.menu();
+
+            //Accordian.accordian();
+            //DatePicker.datepicker();
+            //DatePicker.timepicker();
+            //Slider.slider();
+            //Progressbar.progress();
+
+            //Tab.tabs();
+            //ToolTips.tooltips();
+            //Menu.menu();
+
         }
     }
 }

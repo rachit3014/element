@@ -6,74 +6,74 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace element
 {
-     class CheckBox
+     class CheckBox :Class1
     {
-        public static void check_box()
+        public  void check_box()
         {
-            IWebDriver Driver = new ChromeDriver();
+          
+             chrome("https://demoqa.com/checkbox");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/checkbox");
-            Driver.Manage().Window.Maximize();
+           
 
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[0].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[1].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[2].Click();
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,200)");
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[5].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[3].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[4].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[2].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[3].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[6].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[7].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[8].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[10].Click();
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[11].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[12].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[13].Click();
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,200)");
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[15].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//span[@class='rct-checkbox']"))[16].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[4].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[3].Click();
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,-200)");
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[5].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[2].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[1].Click();
-            Thread.Sleep(2000);
+            time(2000);
             Driver.FindElements(By.XPath("//button[@class='rct-collapse rct-collapse-btn']"))[0].Click();
-            Thread.Sleep(2000);
-            Driver.Close();
+            time(2000);
+           quit();
 
-            Driver.Quit();
+             
         }
 
     }

@@ -7,75 +7,87 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace Forms
 {
-    internal class Program
+    internal class Program:Class1
     {
-        static void Main(string[] args)
-        {
-            Forms();
-        }
-        private static void Forms()
+        
+
+        public   void Forms()
         {
 
-            IWebDriver Driver = new ChromeDriver();
-            Driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+            
+            chrome("https://demoqa.com/automation-practice-form");
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
 
-            Driver.Manage().Window.Maximize();
-            Thread.Sleep(2000);
+            time(2000);
             practice(Driver);
             
 
         }
 
-         private static void practice(IWebDriver Driver)
+         private   void practice(IWebDriver Driver)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
 
-            Driver.FindElement(By.Id("firstName")).SendKeys("rachit");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("userEmail")).SendKeys("rachitkumar3014@gmail.com");
-            Thread.Sleep(2000);
+            Findid("firstName").SendKeys("rachit");
+            time(2000);
+            Findid("lastName").SendKeys("Kumar");
+            time(2000);
+            Findid("userEmail").SendKeys("rachitkumar3014@gmail.com");
+            time(2000);
             Driver.FindElements(By.XPath("//div[contains(@class,'custom-control')]"))[0].Click();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("userNumber")).SendKeys("8797982028");
-            Thread.Sleep(2000);
+            time(2000);
+            Findid("userNumber").SendKeys("8797982028");
+            time(2000);
             Actions action = new Actions(Driver);
-            IWebElement CalInputBox = Driver.FindElement(By.XPath("//input[@id='dateOfBirthInput']"));
+            IWebElement CalInputBox = Findxpath("//input[@id='dateOfBirthInput']");
 
             CalInputBox.Click();
 
-            Thread.Sleep(2000);
+            time(2000);
 
-            action.MoveToElement(Driver.FindElement(By.XPath("//input[@id='dateOfBirthInput']")))
+            action.MoveToElement(Findxpath("//input[@id='dateOfBirthInput']"))
             .KeyDown(Keys.Control)
             .SendKeys("a")
             .KeyUp(Keys.Control)
             .Perform();
+            
 
             CalInputBox.SendKeys("01 Jan 2000");
+            CalInputBox.SendKeys(Keys.Escape);
 
-            Thread.Sleep(3000);
+            time(3000);
 
 
 
-            //Driver.FindElement(By.Id("subjectsContainer")).SendKeys("Computer");
+            //Findid("subjectsContainer")).SendKeys("Computer");
             js.ExecuteScript("window.scrollBy(0,500)");
-            Thread.Sleep(3000);
-            Driver.FindElement(By.XPath("//label[@for='hobbies-checkbox-2']")).Click();
-            Thread.Sleep(2000);
+            time(3000);
+           IWebElement ho= Findxpath("//label[@for='hobbies-checkbox-2']");
+            js.ExecuteScript("arguments[0].click()",ho);
+               
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,500)");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("uploadPicture")).SendKeys(@"E:\sampleFile (1).jpg");
+            time(2000);
+            Findid("uploadPicture").SendKeys(@"E:\sampleFile (1).jpg");
 
-            Driver.Close();
-            Driver.Quit();
+           quit();
+             
         }
 
 
+
+    }
+    class Form
+    {
+        static void Main(string[] args)
+        {
+            Program program = new Program();
+            program.Forms();
+        }
     }
 }
 

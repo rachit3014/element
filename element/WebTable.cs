@@ -6,34 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace element
 {
-     class WebTable
+     class WebTable:Class1
     {
-        public static void webtable()
+        public  void webtable()
         {
-            IWebDriver Driver = new ChromeDriver();
-            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/webtables");
-            Driver.Manage().Window.Maximize();
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("addNewRecordButton")).Click();
-            Driver.FindElement(By.Id("firstName")).SendKeys("rachit");
-            Driver.FindElement(By.Id("lastName")).SendKeys("kumar");
-            Driver.FindElement(By.Id("userEmail")).SendKeys("ygyg@gmail.com");
-            Driver.FindElement(By.Id("age")).SendKeys("20");
-            Driver.FindElement(By.Id("salary")).SendKeys("2000000011");
-            Driver.FindElement(By.Id("department")).SendKeys("IT");
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("submit")).Click();
+           
+            
+           chrome ("https://demoqa.com/webtables");
+            time(2000);
+            Findid("addNewRecordButton").Click();
+            Findid("firstName").SendKeys("rachit");
+            Findid("lastName").SendKeys("kumar");
+            Findid("userEmail").SendKeys("ygyg@gmail.com");
+            Findid("age").SendKeys("20");
+            Findid("salary").SendKeys("2000000011");
+            Findid("department").SendKeys("IT");
+            time(2000);
+            Findid("submit").Click();
 
-            Thread.Sleep(3000);
-            Driver.FindElement(By.Id("delete-record-4")).Click();
-            Thread.Sleep(3000);
-            Driver.Close();
-            Driver.Quit();
+            time(3000);
+            Findid("delete-record-4").Click();
+            time(3000);
+           quit();
+             
 
         }
     }

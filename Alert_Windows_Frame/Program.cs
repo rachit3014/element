@@ -10,11 +10,24 @@ namespace Alert_Windows_Frame
     {
         static void Main(string[] args)
         {
-            Browser_Window.Browse_window();
+
+
+
+            Browser_Window browser_Window = new Browser_Window();
+            browser_Window.browse_window();
+
+            Alerts alerts = new Alerts();
+            alerts.alert();
+
+            Modal modal = new Modal();
+            modal.mmodal();
             
-            Alerts.alerts();
-            Modal.mmodal();
-            
+
+
+
+
+
+
         }
     }
 }

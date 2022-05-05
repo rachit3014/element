@@ -6,45 +6,46 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace element
 {
-     class Textbox
+     class Textbox:Class1
     {
-        public static void textBox()
+        public  void textBox()
         {
-            IWebDriver Driver = new ChromeDriver();
-            Driver.Navigate().GoToUrl("https://demoqa.com/text-box");
+            //IWebDriver Driver = new ChromeDriver();
+            chrome("https://demoqa.com/text-box");
 
-            Driver.Manage().Window.Maximize();
+           // Driver.Manage().Window.Maximize();
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
+            time(2000);
             string name = "Rachit Kumar";
             string email = "rachitkumar3014@gmail.com";
             string Caddress = "koderma";
             string Paddress = "patna";
 
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("userName")).SendKeys(name);
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("userEmail")).SendKeys(email);
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("currentAddress")).SendKeys(Caddress);
-            Thread.Sleep(2000);
-            Driver.FindElement(By.Id("permanentAddress")).SendKeys(Paddress);
+            time(2000);
+            Findid("userName").SendKeys(name);
+            time(2000);
+            Findid("userEmail").SendKeys(email);
+            time(2000);
+            Findid("currentAddress").SendKeys(Caddress);
+            time(2000);
+            Findid("permanentAddress").SendKeys(Paddress);
 
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,500)");
-            Thread.Sleep(2000);
+            time(2000);
 
-            Driver.FindElement(By.Id("submit")).Click();
+            Findid("submit").Click();
             Task.Delay(2000).Wait();
 
             Console.WriteLine("test case ended");
 
 
-            Driver.Close();
-            Driver.Quit();
+           quit();
+             
 
         }
     }

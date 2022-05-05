@@ -6,35 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Base;
 namespace element
 {
-     class Upload_andDownload
+     class Upload_andDownload :Class1
     {
 
-        public static void upload_and_download()
+        public   void upload_and_download()
         {
-            IWebDriver Driver = new ChromeDriver();
-            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-            Driver.Navigate().GoToUrl("https://demoqa.com/upload-download");
-            Driver.Manage().Window.Maximize();
-            Thread.Sleep(2000);
+           
+            chrome("https://demoqa.com/upload-download");
+           
+            time(2000);
             download(Driver);
             upload(Driver);
 
         }
-        private static void upload(IWebDriver Driver)
+        private   void upload(IWebDriver Driver)
         {
-            Driver.FindElement(By.Id("uploadPicture")).SendKeys(@"E:\sampleFile (1).jpg");
-            Thread.Sleep(5000);
-            Driver.Close();
-            Driver.Quit();
+            Findid("uploadPicture").SendKeys(@"E:\sampleFile (1).jpg");
+            time(5000);
+           quit();
+             
         }
-        private static void download(IWebDriver Driver)
+        private  void download(IWebDriver Driver)
         {
-            Driver.FindElement(By.Id("downloadButton")).Click();
-            Thread.Sleep(2000);
+            Findid("downloadButton").Click();
+            time(2000);
 
 
         }

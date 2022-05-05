@@ -7,44 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Base;
 
 namespace Interaction
 {
-    internal class Sortable
+    internal class Sortable: Class1
     {
-        public static void sortable()
+        public  void sortable()
         {
-            IWebDriver Driver = new ChromeDriver();
-            Driver.Navigate().GoToUrl("https://demoqa.com/sortable");
+            
+            chrome("https://demoqa.com/sortable");
 
-            Driver.Manage().Window.Maximize();
+          
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Thread.Sleep(2000);
-            IWebElement from = Driver.FindElement(By.XPath("//div[contains(text(),'One')]"));
-            IWebElement to = Driver.FindElement(By.XPath("//div[contains(text(),'Six')]"));
+            time(2000);
+            IWebElement from = Findxpath("//div[contains(text(),'One')]");
+            IWebElement to = Findxpath("//div[contains(text(),'Six')]");
             Actions act = new Actions(Driver);
             act.DragAndDrop(from, to).Build().Perform();
-            Thread.Sleep(2000);
+            time(2000);
             js.ExecuteScript("window.scrollBy(0,500)");
-            IWebElement ew = Driver.FindElement(By.XPath("//div[contains(text(),'Six')]"));
+            IWebElement ew = Findxpath("//div[contains(text(),'Six')]");
 
-            IWebElement wq = Driver.FindElement(By.XPath("//div[contains(text(),'Three')]"));
+            IWebElement wq = Findxpath("//div[contains(text(),'Three')]");
             Actions action = new Actions(Driver);
             action.DragAndDrop(ew, wq).Build().Perform();
-            Thread.Sleep(2000);
+            time(2000);
             Grid(Driver);
         }
-        public static void Grid(IWebDriver Driver)
+        public   void Grid(IWebDriver Driver)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            Driver.FindElement(By.XPath("//a[@id='demo-tab-grid']")).Click();
-            Thread.Sleep(2000);
-            IWebElement gh = Driver.FindElement(By.XPath("//div[contains(text(),'Three')]"));
-            IWebElement jk = Driver.FindElement(By.XPath("//div[contains(text(),'Four')]"));
+            Findxpath("//a[@id='demo-tab-grid']").Click();
+            time(2000);
+            IWebElement gh = Findxpath("//div[contains(text(),'Three')]");
+            IWebElement jk = Findxpath("//div[contains(text(),'Four')]");
             js.ExecuteScript("window.scrollBy(0,500)");
             Actions lo = new Actions(Driver);
             lo.DragAndDrop(gh, jk).Build().Perform();
-            Thread.Sleep(2000);
+            time(2000);
 
 
 

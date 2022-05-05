@@ -10,9 +10,14 @@ namespace Interaction
     {
         static void Main(string[] args)
         {
-            
-            Sortable.sortable();
-            Slectable.selectable();
+
+
+            Sortable sortble = new Sortable();
+            sortble.sortable();
+            Slectable slectble = new Slectable();  
+            slectble.selectable();
+            //Sortable.sortable();
+            //Slectable.selectable();
         }
     }
 }
